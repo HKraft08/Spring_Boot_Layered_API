@@ -1,6 +1,6 @@
 package org.example.spring_mvc_db.services;
 
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import org.example.spring_mvc_db.DTO.StudentRequest;
 import org.example.spring_mvc_db.DTO.StudentResponse;
 import org.example.spring_mvc_db.entities.Students;
@@ -41,7 +41,7 @@ public class StudentService {
     @Transactional(readOnly = true)
     public List<StudentResponse> getAllStudents() {
 
-        return StudentRepository.findAll()
+        return studentRepository.findAll()
                 .stream()
                 .map(this::mapToResponse)
                 .toList();
