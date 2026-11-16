@@ -4,6 +4,8 @@ import jakarta.transaction.Transactional;
 import org.example.spring_mvc_db.DTO.StudentRequest;
 import org.example.spring_mvc_db.DTO.StudentResponse;
 import org.example.spring_mvc_db.entities.Students;
+import org.example.spring_mvc_db.exceptions.DuplicateResourceException;
+import org.example.spring_mvc_db.exceptions.ResourceNotFoundException;
 import org.example.spring_mvc_db.repository.StudentRepository;
 import org.springframework.stereotype.Service;
 
