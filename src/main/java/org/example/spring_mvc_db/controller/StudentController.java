@@ -45,6 +45,13 @@ public class StudentController {
         return ResponseEntity.ok(studentService.getStudentById(id));
     }
 
+    //READ ONE BY EMAIL
+    @GetMapping("/email/{email}")
+    public ResponseEntity<StudentResponse> getStudentByEmail(@PathVariable String email) {
+
+        return ResponseEntity.ok(studentService.getStudentByEmail(email));
+    }
+
     //UPDATE
     @PutMapping("/{id}")
     public ResponseEntity<StudentResponse> updateStudent(

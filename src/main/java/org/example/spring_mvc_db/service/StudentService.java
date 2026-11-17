@@ -51,7 +51,15 @@ public class StudentService {
     @Transactional(readOnly = true)
     public StudentResponse getStudentById(Long id) {
 
-        Students student = findStudentOrThrow(id);
+        Students student = findStudentByIdOrThrow(id);
+        return mapToResponse(student);
+    }
+
+    //READ ONE BY EMAIL
+    @Transactional(readOnly = true)
+    public StudentResponse getStudentByEmail(String email) {
+
+        Students student = findStudentByEmailOrThrow(email);
         return mapToResponse(student);
     }
 
@@ -59,7 +67,7 @@ public class StudentService {
     @Transactional
     public StudentResponse updateStudent(Long id, StudentRequest request) {
 
-        Students student = findStudentOrThrow(id);
+        Students student = findStudentByIdOrThrow(id);
 
         boolean emailUsedByAnotherStudent = studentRepository.existsByEmailAndIdNot(
                 request.email(),
@@ -83,15 +91,21 @@ public class StudentService {
     @Transactional
     public void deleteStudent(Long id) {
 
-        Students student = findStudentOrThrow(id);
+        Students student = findStudentByIdOrThrow(id);
 
         studentRepository.delete(student);
     }
 
-    private Students findStudentOrThrow(Long id) {
+    private Students findStudentByIdOrThrow(Long id) {
 
         return studentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Student not found with ID: " + id));
+    }
+
+    private Students findStudentByEmailOrThrow(String email) {
+
+        return studentRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found with email: " + email));
     }
 
     private StudentResponse mapToResponse(Students student) {
