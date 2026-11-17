@@ -1,4 +1,4 @@
-package org.example.spring_mvc_db.entities;
+package org.example.spring_mvc_db.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
 package org.example.spring_mvc_db.repository;
 
-import org.example.spring_mvc_db.entities.Students;
+import org.example.spring_mvc_db.entity.Students;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

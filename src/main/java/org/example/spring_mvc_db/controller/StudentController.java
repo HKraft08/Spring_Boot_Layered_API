@@ -1,9 +1,9 @@
-package org.example.spring_mvc_db.controllers;
+package org.example.spring_mvc_db.controller;
 
 import jakarta.validation.Valid;
 import org.example.spring_mvc_db.DTO.StudentRequest;
 import org.example.spring_mvc_db.DTO.StudentResponse;
-import org.example.spring_mvc_db.services.StudentService;
+import org.example.spring_mvc_db.service.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
