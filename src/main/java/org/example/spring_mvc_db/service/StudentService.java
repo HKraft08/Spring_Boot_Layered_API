@@ -63,6 +63,21 @@ public class StudentService {
         return mapToResponse(student);
     }
 
+    //READ BY LAST NAME
+    @Transactional(readOnly = true)
+    public List<StudentResponse> getStudentByLastName(String lastName) {
+
+        List<Students> student = studentRepository.findByLastName(lastName);
+
+        if (student.isEmpty()) {
+            throw new ResourceNotFoundException("Student not found with last name: " + lastName);
+        }
+
+        return student.stream()
+                .map(this::mapToResponse)
+                .toList();
+    }
+
     //UPDATE
     @Transactional
     public StudentResponse updateStudent(Long id, StudentRequest request) {

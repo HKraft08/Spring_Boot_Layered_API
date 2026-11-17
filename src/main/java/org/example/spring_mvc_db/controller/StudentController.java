@@ -3,6 +3,7 @@ package org.example.spring_mvc_db.controller;
 import jakarta.validation.Valid;
 import org.example.spring_mvc_db.DTO.StudentRequest;
 import org.example.spring_mvc_db.DTO.StudentResponse;
+import org.example.spring_mvc_db.entity.Students;
 import org.example.spring_mvc_db.service.StudentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,6 +51,13 @@ public class StudentController {
     public ResponseEntity<StudentResponse> getStudentByEmail(@PathVariable String email) {
 
         return ResponseEntity.ok(studentService.getStudentByEmail(email));
+    }
+
+    //READ BY LAST NAME
+    @GetMapping("/search")
+    public ResponseEntity<List<StudentResponse>> getStudentByLastName(@RequestParam String lastName) {
+
+        return ResponseEntity.ok(studentService.getStudentByLastName(lastName));
     }
 
     //UPDATE
