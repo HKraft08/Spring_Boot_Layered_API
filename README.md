@@ -1,2 +1,2 @@
 # Spring_MVC_DB
-A Spring Boot learning project exploring MVC architecture, REST APIs, Spring Data JPA, and database integration.
+A Spring Boot learning project exploring MVC architecture, REST APIs, Maven dependencies, and database integration.
